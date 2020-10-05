@@ -8,12 +8,8 @@ namespace TICTacToeGame
     class TicTacToeGame
     {
         public char[] board { get; set; }
-
         public char player { get; set; }
-
         public char computer { get; set; }
-
-
 
         public void InitializeBoard()
         {
@@ -24,12 +20,11 @@ namespace TICTacToeGame
 
         public char ChooseOption()
         {
-            Console.Write("Choose X or O :");
+            Console.Write("Choose X or O : ");
             var input = Convert.ToChar(Console.ReadLine());
-            return input;
-
+            return (input == 'X' || input == 'O') ? input : ChooseOption();
         }
 
-        
+  
     }
 }
