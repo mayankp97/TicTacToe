@@ -44,12 +44,13 @@ namespace TICTacToeGame
         {
             Console.Write("Choose an Index to mark : ");
             var index = Convert.ToInt32(Console.ReadLine());
-            if(index < 0 || index > 9)
+            var isFree = CheckFreeSpace(index);
+            if(index <= 0 || index > 9)
             {
                 Console.WriteLine("Invalid Input!\nTry Again");
                 MakeMove();
             }
-            else if (board[index] != ' ')
+            else if (!isFree)
             {
                 Console.WriteLine("The Location is not empty please select a different location");
                 MakeMove();
@@ -60,6 +61,14 @@ namespace TICTacToeGame
                 ShowBoard();
             }
                       
+        }
+
+        public bool CheckFreeSpace(int index)
+        {
+            if (board[index] == ' ')
+                return true;
+            else
+                return false;
         }
   
     }
