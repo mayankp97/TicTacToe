@@ -27,7 +27,7 @@ namespace TICTacToeGame
 
         public void ShowBoard()
         {
-            for(int i = 1; i<10; i++)
+            for(int i = 1; i<10 ; i++)
             {
                 if (i % 3 == 0)
                 {
@@ -44,7 +44,12 @@ namespace TICTacToeGame
         {
             Console.Write("Choose an Index to mark : ");
             var index = Convert.ToInt32(Console.ReadLine());
-            if (board[index] != ' ')
+            if(index < 0 || index > 9)
+            {
+                Console.WriteLine("Invalid Input!\nTry Again");
+                MakeMove();
+            }
+            else if (board[index] != ' ')
             {
                 Console.WriteLine("The Location is not empty please select a different location");
                 MakeMove();
