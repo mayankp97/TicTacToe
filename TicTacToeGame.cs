@@ -33,13 +33,29 @@ namespace TICTacToeGame
                 {
                     Console.Write("{0}\n",board[i]);
                     if(i!=9)
-                        Console.WriteLine("-----------");
+                        Console.WriteLine("------------");
                 }
                 else
                     Console.Write(" {0} |",board[i]);
             }
         }
 
+        public void MakeMove()
+        {
+            Console.Write("Choose an Index to mark : ");
+            var index = Convert.ToInt32(Console.ReadLine());
+            if (board[index] != ' ')
+            {
+                Console.WriteLine("The Location is not empty please select a different location");
+                MakeMove();
+            }
+            else
+            {
+                board[index] = player;
+                ShowBoard();
+            }
+                      
+        }
   
     }
 }
