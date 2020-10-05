@@ -21,8 +21,23 @@ namespace TICTacToeGame
         public char ChooseOption()
         {
             Console.Write("Choose X or O : ");
-            var input = Convert.ToChar(Console.ReadLine());
+            var input = char.ToUpper(Convert.ToChar(Console.ReadLine()));
             return (input == 'X' || input == 'O') ? input : ChooseOption();
+        }
+
+        public void ShowBoard()
+        {
+            for(int i = 1; i<10; i++)
+            {
+                if (i % 3 == 0)
+                {
+                    Console.Write("{0}\n",board[i]);
+                    if(i!=9)
+                        Console.WriteLine("-----------");
+                }
+                else
+                    Console.Write(" {0} |",board[i]);
+            }
         }
 
   
