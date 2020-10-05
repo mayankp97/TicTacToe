@@ -10,6 +10,9 @@ namespace TICTacToeGame
 
             var ticTacToeGame = new TicTacToeGame();
             ticTacToeGame.InitializeBoard();
+            
+            char player = ticTacToeGame.ChooseOption();
+            char computer = player == 'X' ? 'O' : 'X'; 
         }
     }
 }

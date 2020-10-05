@@ -15,5 +15,15 @@ namespace TICTacToeGame
             for (int i = 1; i < 10; i++)
                 board[i] = ' ';
         }
+
+        public char ChooseOption()
+        {
+            Console.Write("Choose X or O :");
+            var input = Convert.ToChar(Console.ReadLine());
+            return input;
+
+        }
+
+        
     }
 }
