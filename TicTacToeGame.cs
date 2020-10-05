@@ -7,17 +7,12 @@ namespace TICTacToeGame
 {
     class TicTacToeGame
     {
-        public char[] board = new char[10];
-
-
-        public TicTacToeGame()
-        {
-            
-        }
+        public char[] board { get; set; }
 
         public void InitializeBoard()
         {
-            for (int i = 0; i < 10; i++)
+            board = new char[10];
+            for (int i = 1; i < 10; i++)
                 board[i] = ' ';
         }
     }

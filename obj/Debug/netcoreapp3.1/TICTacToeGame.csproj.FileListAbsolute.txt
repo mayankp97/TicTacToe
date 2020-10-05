@@ -1,0 +1,13 @@
+C:\Users\Mayank\source\repos\TICTacToeGame\bin\Debug\netcoreapp3.1\TICTacToeGame.exe
+C:\Users\Mayank\source\repos\TICTacToeGame\bin\Debug\netcoreapp3.1\TICTacToeGame.deps.json
+C:\Users\Mayank\source\repos\TICTacToeGame\bin\Debug\netcoreapp3.1\TICTacToeGame.runtimeconfig.json
+C:\Users\Mayank\source\repos\TICTacToeGame\bin\Debug\netcoreapp3.1\TICTacToeGame.runtimeconfig.dev.json
+C:\Users\Mayank\source\repos\TICTacToeGame\bin\Debug\netcoreapp3.1\TICTacToeGame.dll
+C:\Users\Mayank\source\repos\TICTacToeGame\bin\Debug\netcoreapp3.1\TICTacToeGame.pdb
+C:\Users\Mayank\source\repos\TICTacToeGame\obj\Debug\netcoreapp3.1\TICTacToeGame.csprojAssemblyReference.cache
+C:\Users\Mayank\source\repos\TICTacToeGame\obj\Debug\netcoreapp3.1\TICTacToeGame.AssemblyInfoInputs.cache
+C:\Users\Mayank\source\repos\TICTacToeGame\obj\Debug\netcoreapp3.1\TICTacToeGame.AssemblyInfo.cs
+C:\Users\Mayank\source\repos\TICTacToeGame\obj\Debug\netcoreapp3.1\TICTacToeGame.csproj.CoreCompileInputs.cache
+C:\Users\Mayank\source\repos\TICTacToeGame\obj\Debug\netcoreapp3.1\TICTacToeGame.dll
+C:\Users\Mayank\source\repos\TICTacToeGame\obj\Debug\netcoreapp3.1\TICTacToeGame.pdb
+C:\Users\Mayank\source\repos\TICTacToeGame\obj\Debug\netcoreapp3.1\TICTacToeGame.genruntimeconfig.cache
