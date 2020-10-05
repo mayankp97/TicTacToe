@@ -11,8 +11,8 @@ namespace TICTacToeGame
             var ticTacToeGame = new TicTacToeGame();
             ticTacToeGame.InitializeBoard();
             
-            char player = ticTacToeGame.ChooseOption();
-            char computer = player == 'X' ? 'O' : 'X'; 
+            ticTacToeGame.player = ticTacToeGame.ChooseOption();
+            ticTacToeGame.computer = ticTacToeGame.player == 'X' ? 'O' : 'X'; 
         }
     }
 }

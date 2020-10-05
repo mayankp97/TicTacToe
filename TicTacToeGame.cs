@@ -9,6 +9,12 @@ namespace TICTacToeGame
     {
         public char[] board { get; set; }
 
+        public char player { get; set; }
+
+        public char computer { get; set; }
+
+
+
         public void InitializeBoard()
         {
             board = new char[10];
