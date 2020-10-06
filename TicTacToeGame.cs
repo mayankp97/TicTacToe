@@ -145,6 +145,7 @@ namespace TICTacToeGame
                     possibleMoves.Add(item);
             if (possibleMoves.Count == 0)
                 return 0;
+
             var random = new Random();
             while (true)
             {
