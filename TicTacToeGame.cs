@@ -10,6 +10,7 @@ namespace TICTacToeGame
         public char[] board { get; set; }
         public char player { get; set; }
         public char computer { get; set; }
+        public enum Player { User, Computer};
 
         public void InitializeBoard()
         {
@@ -65,10 +66,12 @@ namespace TICTacToeGame
 
         public bool CheckFreeSpace(int index)
         {
-            if (board[index] == ' ')
-                return true;
-            else
-                return false;
+            return board[index] == ' ';
+        }
+
+        public Player Toss()
+        {
+            return new Random().Next(0, 2) == 1 ? Player.User : Player.Computer;
         }
   
     }
