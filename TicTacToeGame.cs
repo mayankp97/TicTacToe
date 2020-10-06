@@ -69,7 +69,7 @@ namespace TICTacToeGame
                 Console.WriteLine("Invalid Input!\nTry Again");
                 MakeMove(ch);
             }
-            else if (board[index] != ' ')
+            else if (!isFree(index))
             {
                 Console.WriteLine("The Location is not empty please select a different location");
                 MakeMove(ch);   
@@ -79,6 +79,11 @@ namespace TICTacToeGame
                 board[index] = ch;
                 ShowBoard();
             }
+        }
+
+        public bool isFree(int index)
+        {
+            return board[index] == ' ';
         }
 
         public Player Toss()
@@ -100,13 +105,24 @@ namespace TICTacToeGame
 
         public int GetComputerMove()
         {
-            int computerWinningMove = GetWinningMove(computer);
-            if(computerWinningMove == 0)
-            {
-                int playerWinningMove = GetWinningMove(player);
-                return playerWinningMove == 0 ? GetRandomCorner() : playerWinningMove;
-            }
-            return computerWinningMove;
+            var currentMove = GetWinningMove(computer);
+            if (currentMove != 0)
+                return currentMove;
+            currentMove = GetWinningMove(player);
+            if (currentMove != 0)
+                return currentMove;
+            int[] corners = { 1, 3, 7, 9 };
+            currentMove = GetRandomMove(corners);
+            if (currentMove != 0)
+                return currentMove;
+            currentMove = 5;
+            if (isFree(currentMove))
+                return currentMove;
+            int[] sides = { 2, 4, 6, 8 };
+            currentMove = GetRandomMove(sides);
+            if (currentMove != 0)
+                return currentMove;
+            return 0;
         }
         public int GetWinningMove(char ch)
         {
@@ -123,15 +139,20 @@ namespace TICTacToeGame
             return 0;
         }
 
-        public int GetRandomCorner()
+        public int GetRandomMove(int[] moves)
         {
+            var possibleMoves = new List<int>();
+            foreach (var item in moves)
+                if (isFree(item))
+                    possibleMoves.Add(item);
+            if (possibleMoves.Count == 0)
+                return 0;
             var random = new Random();
-            int[] corners = new int[4] { 1, 3, 7, 9 };
             while (true)
             {
-                int cornerIndex = random.Next(0, 4);
-                if (board[corners[cornerIndex]] == ' ')
-                    return corners[cornerIndex];
+                int index = random.Next(0, possibleMoves.Count);
+                if (isFree(possibleMoves[index]))
+                    return possibleMoves[index];
             }
         }
   
