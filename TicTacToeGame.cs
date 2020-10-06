@@ -100,7 +100,7 @@ namespace TICTacToeGame
 
         public int GetComputerMove()
         {
-            return GetWinningMove(computer);
+            return GetWinningMove(computer) == 0 ? GetWinningMove(player) : 0;
         }
         public int GetWinningMove(char ch)
         {
