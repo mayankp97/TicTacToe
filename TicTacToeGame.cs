@@ -100,7 +100,13 @@ namespace TICTacToeGame
 
         public int GetComputerMove()
         {
-            return GetWinningMove(computer) == 0 ? GetWinningMove(player) : 0;
+            int computerWinningMove = GetWinningMove(computer);
+            if(computerWinningMove == 0)
+            {
+                int playerWinningMove = GetWinningMove(player);
+                return playerWinningMove == 0 ? GetRandomCorner() : playerWinningMove;
+            }
+            return computerWinningMove;
         }
         public int GetWinningMove(char ch)
         {
@@ -114,8 +120,19 @@ namespace TICTacToeGame
                         return index;
                 }
             }
-
             return 0;
+        }
+
+        public int GetRandomCorner()
+        {
+            var random = new Random();
+            int[] corners = new int[4] { 1, 3, 7, 9 };
+            while (true)
+            {
+                int cornerIndex = random.Next(0, 4);
+                if (board[corners[cornerIndex]] == ' ')
+                    return corners[cornerIndex];
+            }
         }
   
     }
