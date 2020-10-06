@@ -8,10 +8,10 @@ namespace TICTacToeGame
     class TicTacToeGame
     {
         public char[] board { get; set; }
-        public Dictionary<Player, char> Letter;
         public char player { get; set; }
         public char computer { get; set; }
         public enum Player { User, Computer};
+        public enum GameStatus { Won, FullBoard, Continue };
 
         public TicTacToeGame()
         {       
@@ -52,16 +52,20 @@ namespace TICTacToeGame
                 Console.Write("Choose an Index to mark : ");
                 var index = Convert.ToInt32(Console.ReadLine());
                 MoveIfFree(index,ch);
-                if (IsWinner(player))
-                    Console.WriteLine("Player Won the game.");
             }
             else
             {
-                MoveIfFree(GetComputerMove(),ch);
+                var computerMove = GetComputerMove();
+                if (computerMove != 0)
+                    MoveIfFree(computerMove, ch);
             }
                       
         }
 
+        /*
+            char[] boardCopy = new char[10];
+            Array.Copy(board, boardCopy, 10);
+         */
         public void MoveIfFree(int index, char ch)
         {
             if (index <= 0 || index > 9)
@@ -71,13 +75,12 @@ namespace TICTacToeGame
             }
             else if (!isFree(index))
             {
-                Console.WriteLine("The Location is not empty please select a different location");
+                Console.WriteLine("The Location is not empty please select a different location..,.");
                 MakeMove(ch);   
             }
             else
             {
                 board[index] = ch;
-                ShowBoard();
             }
         }
 
@@ -91,7 +94,7 @@ namespace TICTacToeGame
             return new Random().Next(0, 2) == 1 ? Player.User : Player.Computer;
         }
 
-        public bool IsWinner(char ch)
+        public bool IsWinner(char[] board,char ch)
         {
             return ((board[1] == ch && board[2] == ch && board[3] == ch) ||
                     (board[4] == ch && board[5] == ch && board[6] == ch) ||
@@ -131,8 +134,8 @@ namespace TICTacToeGame
                 var boardCopy = board;
                 if (boardCopy[index] == ' ')
                 {
-                    MoveIfFree(index, ch);
-                    if (IsWinner(ch))
+                    boardCopy[index] = ch;
+                    if (IsWinner(boardCopy,ch))
                         return index;
                 }
             }
@@ -154,6 +157,20 @@ namespace TICTacToeGame
                 if (isFree(possibleMoves[index]))
                     return possibleMoves[index];
             }
+        }
+
+        public GameStatus CurrentStatus()
+        {
+            var isFull = true;
+            foreach (var item in board)
+                if (item == ' ' )
+                    isFull = false;
+            if (isFull)
+                return GameStatus.FullBoard;
+            else if (IsWinner(board,player) || IsWinner(board,computer))
+                return GameStatus.Won;
+            else
+                return GameStatus.Continue;
         }
   
     }

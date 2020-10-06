@@ -35,3 +35,6 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+
+#               char[] boardCopy = new char[10];
+#               Array.Copy(board, boardCopy, 10);
