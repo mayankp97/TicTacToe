@@ -61,11 +61,6 @@ namespace TICTacToeGame
             }
                       
         }
-
-        /*
-            char[] boardCopy = new char[10];
-            Array.Copy(board, boardCopy, 10);
-         */
         public void MoveIfFree(int index, char ch)
         {
             if (index <= 0 || index > 9)
