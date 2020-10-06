@@ -61,6 +61,8 @@ namespace TICTacToeGame
                 board[index] = player;
                 ShowBoard();
             }
+            if (IsWinner(player))
+                Console.WriteLine("Player Won the game.");
                       
         }
 
@@ -72,6 +74,18 @@ namespace TICTacToeGame
         public Player Toss()
         {
             return new Random().Next(0, 2) == 1 ? Player.User : Player.Computer;
+        }
+
+        public bool IsWinner(char ch)
+        {
+            return ((board[1] == ch && board[2] == ch && board[3] == ch) ||
+                    (board[4] == ch && board[5] == ch && board[6] == ch) ||
+                    (board[7] == ch && board[8] == ch && board[9] == ch) ||
+                    (board[1] == ch && board[4] == ch && board[7] == ch) ||
+                    (board[2] == ch && board[5] == ch && board[8] == ch) ||
+                    (board[3] == ch && board[6] == ch && board[9] == ch) ||
+                    (board[1] == ch && board[5] == ch && board[9] == ch) ||
+                    (board[3] == ch && board[5] == ch && board[7] == ch));
         }
   
     }
