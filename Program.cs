@@ -10,8 +10,27 @@ namespace TICTacToeGame
         {
             Console.WriteLine("Welcome to Tic Tac Toe!");
 
-            StartGame();
-            
+            var consolMessage = "1.Start a New Tic Tac Toe Game\n2.Exit\nPlease select an Option : ";
+            var quit = false;
+            while (!quit)
+            {
+                Console.Write(consolMessage);
+                var input = Convert.ToInt32(Console.ReadLine());
+                switch (input)
+                {
+                    case 1:
+                        StartGame();
+                        break;
+                    case 2:
+                        quit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input!");
+                        break;
+                }
+
+            }
+
         }
 
         public static void StartGame()
